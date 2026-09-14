@@ -1,0 +1,27 @@
+{
+    "actionButtons": {
+        "reloadButton": null,
+        "defaultColor": "#569CD6",
+        "useScripts": false,
+        "commands": [
+            {
+                "name": "uv run",
+                "command": "uv run ${file}",
+                "color": "#4CAF50",
+                "singleInstance": true
+            },
+            {
+                "name": "flask",
+                "command": "uv run flask --app main run --debug",
+                "color": "#E91E63",
+                "singleInstance": true
+            },
+            {
+                "name": "uv add",
+                "command": "uv add ",
+                "color": "#FF9800",
+                "singleInstance": false
+            }
+        ]
+    }
+}
