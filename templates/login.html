@@ -33,10 +33,9 @@
             }
         }
 
-        /* Container Principal em Preto Translúcido */
         .card-cadastro {
-            position: relative; /* Para permitir o posicionamento do círculo */
-            margin-top: 65px;   /* Espaço na tela para o topo do círculo */
+            position: relative;
+            margin-top: 65px;
             background: rgba(10, 10, 10, 0.88);
             backdrop-filter: blur(12px);
             padding: 30px 40px;
@@ -47,18 +46,17 @@
             max-width: 400px;
         }
 
-        /* Molde Circular para a Imagem */
         .avatar-container {
             position: absolute;
-            top: -65px; /* Coloca metade do círculo para fora da caixa */
+            top: -65px; 
             left: 50%;
             transform: translateX(-50%);
             width: 130px;
             height: 130px;
-            border-radius: 50%; /* Faz a moldura ser redonda */
+            border-radius: 50%;
             background-color: #0f0f0f;
-            border: 3px solid #ff3333; /* Borda vermelha estilizada */
-            box-shadow: 0 0 15px rgba(255, 51, 51, 0.6); /* Brilho neon */
+            border: 3px solid #ff3333;
+            box-shadow: 0 0 15px rgba(255, 51, 51, 0.6);
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -69,7 +67,7 @@
         .avatar-container img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Ajusta a imagem dentro do círculo sem distorcer */
+            object-fit: cover;
         }
 
         .titulo-principal {
@@ -77,12 +75,11 @@
             font-size: 28px;
             font-style: italic;
             text-align: center;  
-            margin-top: 50px; /* Garante espaço de sobra para não encostar na imagem */
+            margin-top: 50px;
             margin-bottom: 25px;
             text-shadow: 0 0 8px rgba(255, 51, 51, 0.4);
         }
 
-        /* Formulário */
         .form-cadastro {
             display: flex;
             flex-direction: column;
@@ -111,7 +108,6 @@
             background-color: #222222;
         }
 
-        /* Botão Vermelho (funciona em <input> e <a>) */
         .btn-submit {
             width: 100%;
             background-color: #cc0000;
@@ -128,7 +124,7 @@
             letter-spacing: 1px;
             display: block;
             text-align: center;
-            text-decoration: none; /* Tira o sublinhado do link */
+            text-decoration: none;
         }
 
         .btn-submit:hover {
@@ -140,7 +136,6 @@
             transform: scale(0.98);
         }
 
-        /* Estilos Comuns de Mensagem (Sucesso e Erro) */
         .mensagem-sucesso,
         .mensagem-erro {
             margin-top: 25px;
@@ -152,7 +147,6 @@
             transition: opacity 0.6s ease, max-height 0.6s ease, padding 0.6s ease, margin 0.6s ease, border 0.6s ease;
         }
 
-        /* Mensagem de Sucesso */
         .mensagem-sucesso {
             background-color: rgba(204, 0, 0, 0.15);
             color: #ff9999;
@@ -171,7 +165,6 @@
             font-size: 14px;
         }
 
-        /* Mensagem de Erro */
         .mensagem-erro {
             background-color: rgba(255, 0, 0, 0.1);
             color: #ff6666;
@@ -180,7 +173,6 @@
             line-height: 1.4;
         }
 
-        /* Classe para fazer a mensagem desaparecer */
         .desaparecer {
             opacity: 0;
             max-height: 0;
@@ -195,14 +187,13 @@
 <body>
 
     <div class="card-cadastro">
-        <!-- Molde circular com a imagem -->
         <div class="avatar-container">
             <img src="/static/imagem.png" alt="Avatar Buytaku">
         </div>
 
         <h2 class="titulo-principal">Cadastro de Usuário</h2>
         
-        <form class="form-cadastro" action="/submit" method="POST">
+        <form class="form-cadastro" action="{{ url_for('login') }}" method="POST">
             <input class="campo-input" type="text" id="nome" name="nome" placeholder="Coloque seu nome aqui..." required>
             <input class="campo-input" type="email" id="email" name="email" placeholder="Digite seu email..." required>
             <input class="campo-input" type="password" id="senha" name="senha" placeholder="Digite sua senha..." required>
@@ -217,12 +208,10 @@
                 <p><strong>Email:</strong> {{ email }}</p>
             </div>
             
-            <!-- Botão/Link para ir manualmente para a página admin -->
             <a href="{{ url_for('admin') }}" class="btn-submit">
                 Acessar Área Administrativa
             </a>
 
-            <!-- Redireciona automaticamente após 3 segundos -->
             <script>
                 setTimeout(function() {
                     window.location.href = "{{ url_for('admin') }}";
@@ -237,7 +226,6 @@
     </div>
 
     <script>
-        /* Faz a mensagem desaparecer se o usuário não for redirecionado */
         setTimeout(function() {
             const mensagem = document.querySelector('.mensagem-sucesso, .mensagem-erro');
             if (mensagem) {
